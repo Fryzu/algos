@@ -6,9 +6,9 @@ import random
 
 #Generating test list
 def generateList(numberTable):
-    size = random.randrange(1, 10)
+    size = random.randrange(1, 10000)
     for x in range(0, size):
-        numberTable.append(random.randrange(-100, 100))
+        numberTable.append(random.randrange(-1000, 1000))
     return
 
 #Sort test
@@ -57,12 +57,10 @@ def merge(numberTable, center, left, right):
         while secondIterator <= right:
             tmpTable.append(numberTable[secondIterator])
             secondIterator += 1
-         
 
     #rewriting list
-    
     k = 0
-    for x in range(left, right):
+    for x in range(left, right+1):
         numberTable[x] = tmpTable[k]
         k += 1
         
