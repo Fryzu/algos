@@ -22,14 +22,16 @@ def testIfSorted(numberTable):
     print(numberTable)
     print(testList)
 
+    result = 1
+
     for x in range(0, len(numberTable)):
         if testList == numberTable:
             print('OK')
         else:
             print('WRONG')
-    return  
+            result = 0
 
-#merge function test
+    return result
 
 #---------------------------------------------------------------------
 
@@ -78,13 +80,13 @@ def mergeSort(numberTable, left, right):
         return
 
 #---------------------------------------------------------------------
-
-testList = []
-generateList(testList)
-mergeSort(testList, 0, len(testList) - 1)
-testIfSorted(testList)
-
-'''
-list = [1,2,3,5,8,-4,-3,-2, 5]
-print(list)
-merge(list, 4, 0, len(list)-1)'''
+#starting test
+if __name__ == '__main__':
+    #starting sort test
+    testList = []
+    generateList(testList)
+    mergeSort(testList, 0, len(testList) - 1)
+    if testIfSorted(testList) == 1:
+        print('test passed')
+    else:
+        print('test failed')

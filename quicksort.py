@@ -22,13 +22,16 @@ def testIfSorted(numberTable):
     print(numberTable)
     print(testList)
 
+    result = 1
+
     for x in range(0, len(numberTable)):
         if testList == numberTable:
             print('OK')
         else:
             print('WRONG')
-    return  
+            result = 0
 
+    return result
 #---------------------------------------------------------------------
 
 def getPivot(left, right):
@@ -75,9 +78,13 @@ def quicksort(numberTable, left, right):
         quicksort(numberTable, l, right)
 
 #---------------------------------------------------------------------
-
-hababa = []
-generateList(hababa)
-print(hababa)
-quicksort(hababa, 0, len(hababa) - 1)
-testIfSorted(hababa)
+#starting test
+if __name__ == '__main__':
+    #starting sort test
+    testList = []
+    generateList(testList)
+    quicksort(testList, 0, len(testList) - 1)
+    if testIfSorted(testList) == 1:
+        print('test passed')
+    else:
+        print('test failed')

@@ -11,7 +11,7 @@ rangeEnd = 1000000
 
 #generating test list
 def generateList(numberTable):
-    size = random.randrange(1, 1000)
+    size = random.randrange(1, 10000)
     for x in range(0, size):
         numberTable.append(random.randrange(rangeStart, rangeEnd))
     return
@@ -27,12 +27,16 @@ def testIfSorted(numberTable):
     print(numberTable)
     print(testList)
 
+    result = 1
+
     for x in range(0, len(numberTable)):
         if testList == numberTable:
             print('OK')
         else:
             print('WRONG')
-    return
+            result = 0
+
+    return result
 
 #---------------------------------------------------------------------
 
@@ -56,8 +60,13 @@ def countingSort(numberTable):
             indexTable[x] -= 1
 
 #---------------------------------------------------------------------
-
-testList = []
-generateList(testList)
-countingSort(testList)
-testIfSorted(testList)
+#starting test
+if __name__ == '__main__':
+    #starting sort test
+    testList = []
+    generateList(testList)
+    countingSort(testList)
+    if testIfSorted(testList) == 1:
+        print('test passed')
+    else:
+        print('test failed')
